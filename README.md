@@ -1,93 +1,106 @@
-DevOps Practice Project – Dist Directory
+# Trendify - DevOps Application Deployment
 
-This repository contains the production-ready build files (dist folder) for DevOps practice and deployment exercises.
+## Project Overview
 
-It is intentionally structured to help learners focus on CI/CD pipelines, hosting, containerization, and infrastructure setup rather than application development.
+Trendify is a production-ready React web application deployed using a complete DevOps workflow on AWS.
 
-📁 What This Repository Contains
 
-dist/ – Compiled and production-ready static files
 
-HTML
+The project demonstrates containerization, infrastructure provisioning, CI/CD automation, Kubernetes deployment, GitHub webhook integration, AWS Elastic Load Balancing, and open-source monitoring using Prometheus and Grafana.
 
-CSS
 
-JavaScript
 
-Assets (images, fonts, etc.)
+\## Architecture
 
-These files are ready to deploy to:
 
-Web servers (Nginx / Apache)
 
-Cloud platforms (AWS S3, Azure Blob, GCP Storage)
+```text
 
-Containerized environments (Docker + Nginx)
+Developer
 
-Kubernetes clusters
+&#x20;   |
 
-CI/CD pipeline demonstrations
+&#x20;   v
 
-🎯 Purpose of This Repository
+GitHub Repository
 
-This repository is designed for:
+&#x20;   |
 
-DevOps beginners
+&#x20;   | GitHub Push
 
-CI/CD practice
+&#x20;   v
 
-Deployment pipeline testing
+GitHub Webhook
 
-Docker & Kubernetes deployment exercises
+&#x20;   |
 
-Web server configuration practice
+&#x20;   v
 
-Reverse proxy and load balancer setup
+Jenkins on AWS EC2
 
-The goal is to simulate real-world deployment scenarios using already built application files.
+&#x20;   |
 
-❓ Why is there NO package.json?
+&#x20;   +---- Docker Build
 
-You may notice that this repository does not include:
+&#x20;   |
 
-package.json
+&#x20;   +---- DockerHub Push
 
-node_modules
+&#x20;   |
 
-Source code (src/)
+&#x20;   +---- Configure EKS
 
-Build tools configuration
+&#x20;   |
 
-✅ Reason:
+&#x20;   +---- kubectl Deploy
 
-This repository only contains the final production build output (dist), not the development source code.
+&#x20;   |
 
-In a typical project:
+&#x20;   v
 
-Developers write source code.
+Amazon EKS
 
-The project is built using tools like:
+&#x20;   |
 
-Node.js
+&#x20;   +---- Trendify Deployment
 
-Webpack
+&#x20;   |       |
 
-Vite
+&#x20;   |       +---- Pod 1
 
-React (or other frameworks)
+&#x20;   |       |
 
-A dist/ folder is generated.
+&#x20;   |       +---- Pod 2
 
-Only the production build is deployed to servers.
+&#x20;   |
 
-This repository represents step 4 only.
+&#x20;   v
 
-Since this is already the compiled output:
+Kubernetes LoadBalancer
 
-No dependencies are required
+&#x20;   |
 
-No build process is required
+&#x20;   v
 
-No package.json is needed
+Public Trendify Application
 
-## CI/CD Webhook Test
+
+
+Monitoring:
+
+Amazon EKS
+
+&#x20;   |
+
+&#x20;   +---- Prometheus
+
+&#x20;   +---- Node Exporter
+
+&#x20;   +---- kube-state-metrics
+
+&#x20;   |
+
+&#x20;   v
+
+Grafana
+
