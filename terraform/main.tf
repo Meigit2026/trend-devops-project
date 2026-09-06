@@ -259,9 +259,9 @@ resource "aws_eks_cluster" "trend" {
   role_arn = aws_iam_role.eks_cluster.arn
 
   access_config {
-  authentication_mode                         = "API_AND_CONFIG_MAP"
-  bootstrap_cluster_creator_admin_permissions = true
-}
+    authentication_mode                         = "API_AND_CONFIG_MAP"
+    bootstrap_cluster_creator_admin_permissions = true
+  }
 
   vpc_config {
     subnet_ids = [
